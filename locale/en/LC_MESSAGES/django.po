@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-16 16:51+0500\n"
+"POT-Creation-Date: 2024-06-16 17:32+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -111,19 +111,19 @@ msgstr ""
 msgid "Orders items"
 msgstr ""
 
-#: .\pages\models.py:52
+#: .\pages\models.py:53
 msgid "question"
 msgstr ""
 
-#: .\pages\models.py:53
+#: .\pages\models.py:54
 msgid "answer"
 msgstr ""
 
-#: .\pages\models.py:62 .\templates\layouts\header-base.html:33
+#: .\pages\models.py:63 .\templates\layouts\header-base.html:33
 msgid "Faq"
 msgstr ""
 
-#: .\pages\models.py:63
+#: .\pages\models.py:64
 msgid "Faqs"
 msgstr ""
 
@@ -160,13 +160,13 @@ msgid "products"
 msgstr ""
 
 #: .\templates\blogs\blog-detail.html:22 .\templates\blogs\blog-list.html:22
-#: .\templates\contact.html:75 .\templates\faq.html:22
+#: .\templates\contact.html:75 .\templates\faq_list.html:22
 #: .\templates\layouts\header-base.html:151
 #: .\templates\products\checkout.html:127
 #: .\templates\products\product-detail.html:23
 #: .\templates\products\product-list.html:22 .\templates\users\about-us.html:22
 #: .\templates\users\accounts.html:55 .\templates\users\cart.html:23
-#: .\templates\users\order-history.html:20
+#: .\templates\users\order-history.html:20 .\templates\users\wishlist.html:22
 msgid "Home"
 msgstr ""
 
@@ -237,16 +237,16 @@ msgstr ""
 msgid "Hotline"
 msgstr ""
 
-#: .\templates\faq.html:23
+#: .\templates\faq_list.html:23
 msgid "FAQ"
 msgstr ""
 
-#: .\templates\faq.html:36
+#: .\templates\faq_list.html:36
 msgid ""
 "Below are frequently asked questions, you may find the answer for yourself"
 msgstr ""
 
-#: .\templates\faq.html:37
+#: .\templates\faq_list.html:37
 msgid ""
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id erat "
 "sagittis, faucibus metus malesuada, eleifend turpis. Mauris semper augue id "
@@ -307,6 +307,7 @@ msgstr ""
 #: .\templates\products\product-detail.html:186
 #: .\templates\products\product-list.html:103
 #: .\templates\products\product-list.html:154
+#: .\templates\users\wishlist.html:44
 msgid "Add to cart"
 msgstr ""
 
@@ -320,6 +321,7 @@ msgstr ""
 #: .\templates\products\product-list.html:97
 #: .\templates\products\product-list.html:143
 #: .\templates\products\product-list.html:333 .\templates\users\cart.html:63
+#: .\templates\users\wishlist.html:57
 msgid "No discount"
 msgstr ""
 
@@ -374,6 +376,7 @@ msgid " 6688Princess Road, London, Greater London BAS 23JK, UK"
 msgstr ""
 
 #: .\templates\layouts\footer.html:100 .\templates\users\cart.html:42
+#: .\templates\users\wishlist.html:41
 msgid "Product"
 msgstr ""
 
@@ -520,6 +523,7 @@ msgstr ""
 
 #: .\templates\products\product-detail.html:89
 #: .\templates\products\product-list.html:359
+#: .\templates\users\wishlist.html:64
 msgid "add to cart"
 msgstr ""
 
@@ -678,11 +682,11 @@ msgstr ""
 msgid "Remove"
 msgstr ""
 
-#: .\templates\users\cart.html:41
+#: .\templates\users\cart.html:41 .\templates\users\wishlist.html:40
 msgid "Images"
 msgstr ""
 
-#: .\templates\users\cart.html:44
+#: .\templates\users\cart.html:44 .\templates\users\wishlist.html:42
 msgid "Price"
 msgstr ""
 
@@ -738,6 +742,26 @@ msgstr ""
 
 #: .\templates\users\order-history.html:83
 msgid "Homepage"
+msgstr ""
+
+#: .\templates\users\wishlist.html:23
+msgid "Wishlist"
+msgstr ""
+
+#: .\templates\users\wishlist.html:39
+msgid "remove"
+msgstr ""
+
+#: .\templates\users\wishlist.html:43
+msgid "Stock Status"
+msgstr ""
+
+#: .\templates\users\wishlist.html:60
+msgid "In stock"
+msgstr ""
+
+#: .\templates\users\wishlist.html:62
+msgid "Not in stock"
 msgstr ""
 
 #: .\users\models.py:17
