@@ -30,7 +30,7 @@
                                                         <li><a href="{% url 'users:logout'%}">{% trans 'Logout' %}</a></li>
                                                         <li><a href="{% url 'orders:checkout' %}">{% trans 'Checkout' %}</a></li>
                                                         <li><a href="{% url 'orders:history' %}">{% trans 'My order' %}</a></li>
-                                                        <li><a href="{% url 'users:faq' %}">{% trans 'Faq' %}</a></li>
+                                                        <li><a href="{% url 'pages:faq' %}">{% trans 'Faq' %}</a></li>
                                                     {%else%}
                                                         <li><a href="{% url 'users:login'%}">{% trans 'Log In' %}</a></li>
                                                     {%endif%}

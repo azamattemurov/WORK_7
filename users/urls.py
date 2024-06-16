@@ -1,6 +1,5 @@
 from django.urls import path
-from users.views import LoginView, RegisterView, verify_email, logout_view, About, AccountView, CartView, WishlistView, \
-    Faq
+from users.views import LoginView, RegisterView, verify_email, logout_view, About, AccountView, CartView, WishlistView
 
 app_name = 'users'
 
@@ -13,6 +12,5 @@ urlpatterns = [
     path('accounts/', AccountView.as_view(), name='accounts'),
     path('cart/', CartView.as_view(), name='cart'),
     path('wishlist/', WishlistView.as_view(), name='wishlist'),
-    path('faq/', Faq.as_view(), name='faq'),
 
 ]

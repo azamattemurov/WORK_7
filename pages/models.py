@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 
 class CategoryModels(models.Model):
@@ -45,3 +46,22 @@ class ProductsModels(models.Model):
 
     class Meta:
         verbose_name = 'Product'
+        verbose_name_plural = 'Products'
+
+class FaqModel(models.Model):
+    objects = None
+    question = models.CharField(max_length=500, verbose_name=_('question'))
+    answer = models.CharField(max_length=500, verbose_name=_('answer'))
+
+    create_at = models.DateTimeField(auto_now_add=True)
+    update_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return str(self.question)
+
+    class Meta:
+        verbose_name = _('Faq')
+        verbose_name_plural = _('Faqs')
+
+
+

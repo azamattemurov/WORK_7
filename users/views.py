@@ -190,8 +190,7 @@ class WishlistView(ListView):
         context['total_price'] = self.calculate_total_price()
         return context
 
-class Faq(TemplateView):
-    template_name = 'faq.html'
+
 
 
 

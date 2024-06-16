@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-16 06:43+0500\n"
+"POT-Creation-Date: 2024-06-16 16:51+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -69,7 +69,7 @@ msgstr ""
 msgid "Blog"
 msgstr ""
 
-#: .\blogs\models.py:57 .\templates\layouts\header-base.html:154
+#: .\blogs\models.py:57 .\templates\layouts\header-base.html:153
 msgid "Blogs"
 msgstr ""
 
@@ -111,6 +111,22 @@ msgstr ""
 msgid "Orders items"
 msgstr ""
 
+#: .\pages\models.py:52
+msgid "question"
+msgstr ""
+
+#: .\pages\models.py:53
+msgid "answer"
+msgstr ""
+
+#: .\pages\models.py:62 .\templates\layouts\header-base.html:33
+msgid "Faq"
+msgstr ""
+
+#: .\pages\models.py:63
+msgid "Faqs"
+msgstr ""
+
 #: .\products\models.py:52
 msgid "color"
 msgstr ""
@@ -145,7 +161,7 @@ msgstr ""
 
 #: .\templates\blogs\blog-detail.html:22 .\templates\blogs\blog-list.html:22
 #: .\templates\contact.html:75 .\templates\faq.html:22
-#: .\templates\layouts\header-base.html:152
+#: .\templates\layouts\header-base.html:151
 #: .\templates\products\checkout.html:127
 #: .\templates\products\product-detail.html:23
 #: .\templates\products\product-list.html:22 .\templates\users\about-us.html:22
@@ -193,7 +209,7 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: .\templates\contact.html:76 .\templates\layouts\header-base.html:158
+#: .\templates\contact.html:76 .\templates\layouts\header-base.html:157
 msgid "Contact"
 msgstr ""
 
@@ -277,7 +293,7 @@ msgid "Best sellers"
 msgstr ""
 
 #: .\templates\index.html:107 .\templates\index.html:203
-#: .\templates\products\product-detail.html:164
+#: .\templates\products\product-detail.html:165
 #: .\templates\products\product-list.html:82
 #: .\templates\products\product-list.html:126
 msgid "New"
@@ -288,7 +304,7 @@ msgid "No discount "
 msgstr ""
 
 #: .\templates\index.html:128 .\templates\index.html:224
-#: .\templates\products\product-detail.html:185
+#: .\templates\products\product-detail.html:186
 #: .\templates\products\product-list.html:103
 #: .\templates\products\product-list.html:154
 msgid "Add to cart"
@@ -298,9 +314,9 @@ msgstr ""
 msgid "TOP Products"
 msgstr ""
 
-#: .\templates\index.html:218 .\templates\layouts\header-base.html:110
-#: .\templates\products\product-detail.html:63
-#: .\templates\products\product-detail.html:179
+#: .\templates\index.html:218 .\templates\layouts\header-base.html:111
+#: .\templates\products\product-detail.html:62
+#: .\templates\products\product-detail.html:180
 #: .\templates\products\product-list.html:97
 #: .\templates\products\product-list.html:143
 #: .\templates\products\product-list.html:333 .\templates\users\cart.html:63
@@ -409,69 +425,65 @@ msgstr ""
 msgid "Subscribe"
 msgstr ""
 
-#: .\templates\layouts\header-base.html:13
+#: .\templates\layouts\header-base.html:14
 msgid "Telephone Enquiry"
 msgstr ""
 
-#: .\templates\layouts\header-base.html:24
+#: .\templates\layouts\header-base.html:25
 msgid "Settings"
 msgstr ""
 
-#: .\templates\layouts\header-base.html:27
+#: .\templates\layouts\header-base.html:28
 msgid "My Accounts"
 msgstr ""
 
-#: .\templates\layouts\header-base.html:29
+#: .\templates\layouts\header-base.html:30
 msgid "Logout"
 msgstr ""
 
-#: .\templates\layouts\header-base.html:30
-#: .\templates\layouts\header-base.html:127
+#: .\templates\layouts\header-base.html:31
+#: .\templates\layouts\header-base.html:128
 #: .\templates\products\checkout.html:128 .\templates\users\cart.html:82
 msgid "Checkout"
 msgstr ""
 
-#: .\templates\layouts\header-base.html:31
+#: .\templates\layouts\header-base.html:32
 msgid "My order"
 msgstr ""
 
-#: .\templates\layouts\header-base.html:32
-msgid "Faq"
-msgstr ""
-
-#: .\templates\layouts\header-base.html:34
+#: .\templates\layouts\header-base.html:35
 msgid "Log In"
 msgstr ""
 
-#: .\templates\layouts\header-base.html:40
+#: .\templates\layouts\header-base.html:41
 msgid "Language"
 msgstr ""
 
-#: .\templates\layouts\header-base.html:41
+#: .\templates\layouts\header-base.html:42
 msgid "Choose"
 msgstr ""
 
-#: .\templates\layouts\header-base.html:73
+#: .\templates\layouts\header-base.html:74
 msgid "Enter your search key ..."
 msgstr ""
 
-#: .\templates\layouts\header-base.html:119
+#: .\templates\layouts\header-base.html:120
 msgid "More product"
 msgstr ""
 
-#: .\templates\layouts\header-base.html:121
+#: .\templates\layouts\header-base.html:122
 msgid "TOTAL"
 msgstr ""
 
-#: .\templates\layouts\header-base.html:124
+#: .\templates\layouts\header-base.html:125
 msgid "View Full Cart"
 msgstr ""
 
-#: .\templates\layouts\header-base.html:156
+#: .\templates\layouts\header-base.html:155
 msgid "Products"
 msgstr ""
 
-#: .\templates\layouts\header-base.html:160
+#: .\templates\layouts\header-base.html:159
 msgid "About"
 msgstr ""
 
@@ -484,44 +496,44 @@ msgid "Continue"
 msgstr ""
 
 #: .\templates\products\product-detail.html:24
-#: .\templates\products\product-detail.html:119
+#: .\templates\products\product-detail.html:120
 msgid "Product Details"
 msgstr ""
 
-#: .\templates\products\product-detail.html:57
-#: .\templates\products\product-detail.html:136
+#: .\templates\products\product-detail.html:56
+#: .\templates\products\product-detail.html:137
 #: .\templates\products\product-list.html:326
 msgid "Reference"
 msgstr ""
 
-#: .\templates\products\product-detail.html:74
+#: .\templates\products\product-detail.html:73
 #: .\templates\products\product-list.html:259
 #: .\templates\products\product-list.html:344
 msgid "Dimension"
 msgstr ""
 
-#: .\templates\products\product-detail.html:85
+#: .\templates\products\product-detail.html:84
 #: .\templates\products\product-list.html:355 .\templates\users\cart.html:43
 #: .\templates\users\cart.html:54
 msgid "Quantity"
 msgstr ""
 
-#: .\templates\products\product-detail.html:90
+#: .\templates\products\product-detail.html:89
 #: .\templates\products\product-list.html:359
 msgid "add to cart"
 msgstr ""
 
-#: .\templates\products\product-detail.html:94
+#: .\templates\products\product-detail.html:93
 #: .\templates\products\product-list.html:155
 #: .\templates\products\product-list.html:363
 msgid "Add to wishlist"
 msgstr ""
 
-#: .\templates\products\product-detail.html:118
+#: .\templates\products\product-detail.html:119
 msgid "Description"
 msgstr ""
 
-#: .\templates\products\product-detail.html:151
+#: .\templates\products\product-detail.html:152
 msgid "other products in the same category"
 msgstr ""
 

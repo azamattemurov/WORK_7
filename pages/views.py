@@ -4,7 +4,7 @@ from django.views.generic import TemplateView, FormView
 from products.models import ProductModel
 from .forms import ContactForm
 from django.core.mail import send_mail
-from pages.models import ProductsModels
+from pages.models import ProductsModels, FaqModel
 
 
 class HomePageView(TemplateView):
@@ -17,6 +17,14 @@ class HomePageView(TemplateView):
 
         return content
 
+
+class Faq(TemplateView):
+    template_name = 'faq.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["faqs_message"] = FaqModel.objects.all()
+        return context
 
 class ContactTemplateView(FormView):
     template_name = 'contact.html'
