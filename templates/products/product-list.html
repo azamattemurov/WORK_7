@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!doctype html>
 <html class="no-js" lang="zxx" xmlns="http://www.w3.org/1999/html">
     
@@ -18,8 +19,8 @@
                 <div class="container">
                     <div class="breadcrumb-content">
                         <ul>
-                            <li><a href="{% url 'pages:home' %}">Home</a></li>
-                            <li class="active">Products List </li>
+                            <li><a href="{% url 'pages:home' %}">{% trans 'Home' %}</a></li>
+                            <li class="active">{% trans 'Products List ' %}</li>
                         </ul>
                     </div>
                 </div>
@@ -47,19 +48,19 @@
                                         <!-- shop-item-filter-list end -->
                                     </div>
                                     <div class="toolbar-amount">
-                                        <p>There are product - {{products.count }} </p>
+                                        <p>{% trans 'There are product' %} - {{products.count }} </p>
                                     </div>
                                 </div>
                                 <!-- product-select-box start -->
                                 <div class="product-select-box">
                                     <div class="product-short">
-                                        <p>Sort By:</p>
+                                        <p>{% trans 'Sort By' %}:</p>
                                         <select onchange="addUrlParameter('sort', this.value)" class="nice-select">
-                                            <option value="trending">Relevance</option>
-                                             <option {% if request.GET.sort == 'title' %} selected {% endif %} value="title">Name, A to Z</option>
-                                            <option {% if request.GET.sort == '-title' %} selected {% endif %} value="-title">Name, Z to A</option>
-                                            <option {% if request.GET.sort == '-price' %} selected {% endif %} value="-price">Price, low to high</option>
-                                            <option {% if request.GET.sort == 'price' %} selected {% endif %} value="price">Price, high to low</option>
+                                            <option value="trending">{% trans 'Relevance' %}</option>
+                                             <option {% if request.GET.sort == 'title' %} selected {% endif %} value="title">{% trans 'Name, A to Z' %}</option>
+                                            <option {% if request.GET.sort == '-title' %} selected {% endif %} value="-title">{% trans 'Name, Z to A' %}</option>
+                                            <option {% if request.GET.sort == '-price' %} selected {% endif %} value="-price">{% trans 'Price low to high' %}</option>
+                                            <option {% if request.GET.sort == 'price' %} selected {% endif %} value="price">{% trans 'Price, high to low' %}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -78,7 +79,7 @@
                                                             <a href="{% url 'products:detail' pk=prod.id %}">
                                                                 <img src="{{ prod.image.url }}" alt="Li's Product Image">
                                                             </a>
-                                                            <span class="sticker">New</span>
+                                                            <span class="sticker">{% trans 'New' %}</span>
                                                         </div>
                                                         <div class="product_desc">
                                                             <div class="product_desc_info">
@@ -93,13 +94,13 @@
                                                                         <span style="color:#14EF31;" class="price">${{ prod.get_price }} - </span>
                                                                         <strike style="color:red;">{{ prod.price }}</strike>
                                                                     {% else %}
-                                                                        <span class="price" style="color: #B714EF">No discount - ${{ prod.price }}</span>
+                                                                        <span class="price" style="color: #B714EF">{% trans 'No discount' %} - ${{ prod.price }}</span>
                                                                     {% endif %}
                                                                 </div>
                                                             </div>
                                                             <div class="add-actions">
                                                                 <ul class="add-actions-link">
-                                                                    <li class="add-cart active"><a href="{% url 'products:add_or_remove' pk=prod.id %}?next={{request.get_full_path|urlencode}}">Add to cart</a></li>
+                                                                    <li class="add-cart active"><a href="{% url 'products:add_or_remove' pk=prod.id %}?next={{request.get_full_path|urlencode}}">{% trans 'Add to cart' %}</a></li>
                                                                     <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
                                                                     <li><a class="links-details" href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>
                                                                 </ul>
@@ -122,7 +123,7 @@
                                                             <a href="{% url 'products:detail' pk=prod.id %}">
                                                                 <img src="{{ prod.image.url }}" alt="Li's Product Image">
                                                             </a>
-                                                            <span class="sticker">New</span>
+                                                            <span class="sticker">{% trans 'New' %}</span>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-5 col-md-7">
@@ -139,7 +140,7 @@
                                                                         <span style="color:#14EF31;" class="price">${{ prod.get_price }} - </span>
                                                                         <strike style="color:red;">{{ prod.price }}</strike>
                                                                     {% else %}
-                                                                        <span class="price" style="color: #B714EF">No discount - ${{ prod.price }}</span>
+                                                                        <span class="price" style="color: #B714EF">{% trans 'No discount'%} - ${{ prod.price }}</span>
                                                                     {% endif %}
                                                                 </div>
                                                                 <br>
@@ -150,9 +151,9 @@
                                                     <div class="col-lg-4">
                                                         <div class="shop-add-action">
                                                             <ul class="add-actions-link">
-                                                                <li class="add-cart active"><a href="{% url 'products:add_or_remove' pk=prod.id %}?next={{request.get_full_path|urlencode}}">Add to cart</a></li>
-                                                                <li class="wishlist"><a href="{% url 'products:add_or_remov' pk=prod.id %}?next={{request.get_full_path|urlencode}}"><i class="fa fa-heart-o"></i>Add to wishlist</a></li>
-                                                                <li><a class="quick-view" data-toggle="modal" data-target="#exampleModalCenter" href="{% url 'products:detail' pk=prod.id %}"><i class="fa fa-eye"></i>Quick view</a></li>
+                                                                <li class="add-cart active"><a href="{% url 'products:add_or_remove' pk=prod.id %}?next={{request.get_full_path|urlencode}}">{% trans 'Add to cart' %}</a></li>
+                                                                <li class="wishlist"><a href="{% url 'products:add_or_remov' pk=prod.id %}?next={{request.get_full_path|urlencode}}"><i class="fa fa-heart-o"></i>{% trans 'Add to wishlist' %}</a></li>
+                                                                <li><a class="quick-view" data-toggle="modal" data-target="#exampleModalCenter" href="{% url 'products:detail' pk=prod.id %}"><i class="fa fa-eye"></i>{% trans 'Quick view' %}</a></li>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -164,12 +165,12 @@
                                     <div class="paginatoin-area">
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6">
-                                                <p>There are product - {{products.count }} </p>
+                                                <p>{% trans 'There are product' %} - {{products.count }} </p>
                                             </div>
                                             <div class="col-lg-6 col-md-6">
                                                 <ul class="pagination-box">
                                                     {% if page_obj.has_previous %}
-                                                    <li><a class="Previous" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+                                                    <li><a class="Previous" href="?page={{ page_obj.previous_page_number }}">{% trans 'Previous' %}</a></li>
                                                      {% endif %}
                                                     {% for page in page_obj.paginator.page_range %}
                                                     <li {% if page == page_obj.number %} class="active">{% endif %}
@@ -178,7 +179,7 @@
                                                     </li>
                                                     {% endfor %}
                                                     {% if page_obj.has_next %}
-                                                    <li><a class="Next" href="?page={{ page_obj.next_page_number }}">Next</a></li>
+                                                    <li><a class="Next" href="?page={{ page_obj.next_page_number }}">{% trans 'Next' %}</a></li>
                                                     {% endif %}
                                                 </ul>
                                             </div>
@@ -192,7 +193,7 @@
                             <!--sidebar-categores-box start  -->
                             <div class="sidebar-categores-box mt-sm-30 mt-xs-30">
                                 <div class="sidebar-title">
-                                    <h2>Laptop</h2>
+                                    <h2>{% trans 'Use a filtering service' %} !...</h2>
                                 </div>
                                 <!-- category-sub-menu start -->
 
@@ -202,13 +203,13 @@
                             <!--sidebar-categores-box start  -->
                             <div class="sidebar-categores-box">
                                 <div class="sidebar-title">
-                                    <h2>Filter By</h2>
+                                    <h2>{% trans 'Filter By' %}</h2>
                                 </div>
 
                                 <!-- btn-clear-all end -->
                                 <!-- filter-sub-area start -->
                                 <div class="filter-sub-area">
-                                    <h5 class="filter-sub-titel">Brand</h5>
+                                    <h5 class="filter-sub-titel">{% trans 'Brand' %}</h5>
                                     <div class="categori-checkbox">
                                         <form action="#">
                                             {% for br in brand %}
@@ -223,7 +224,7 @@
                                 <!-- filter-sub-area end -->
                                 <!-- filter-sub-area start -->
                                 <div class="filter-sub-area pt-sm-10 pt-xs-10">
-                                    <h5 class="filter-sub-titel">Categories</h5>
+                                    <h5 class="filter-sub-titel">{% trans 'Categories' %}</h5>
                                     <div class="categori-checkbox">
                                         <form action="#">
                                             {% for cat in categories %}
@@ -239,7 +240,7 @@
                                 <!-- filter-sub-area end -->
                                 <!-- filter-sub-area start -->
                                 <div class="filter-sub-area pt-sm-10 pt-xs-10">
-                                    <h5 class="filter-sub-titel">Colors</h5>
+                                    <h5 class="filter-sub-titel">{% trans 'Colors' %}</h5>
                                     <div>
                                         <span class="left">
                                             {% for col in color %}
@@ -255,7 +256,7 @@
                                 <!-- filter-sub-area end -->
                                 <!-- filter-sub-area start -->
                                 <div class="filter-sub-area pt-sm-10 pb-sm-15 pb-xs-15">
-                                    <h5 class="filter-sub-titel">Dimension</h5>
+                                    <h5 class="filter-sub-titel">{% trans 'Dimension' %}</h5>
                                     <div class="categori-checkbox">
                                         <form action="#">
                                             {% for size in sizes %}
@@ -273,7 +274,7 @@
                             <!-- category-sub-menu start -->
                             <div class="sidebar-categores-box mb-sm-0">
                                 <div class="sidebar-title">
-                                    <h2>Laptop</h2>
+                                    <h2>{% trans 'Tags'%}</h2>
                                 </div>
                                 <div class="categori-checkbox">
                                      <form action="#">
@@ -322,14 +323,14 @@
                                     <div class="product-details-view-content pt-60">
                                         <div class="product-info">
                                             <h2>{{ prod.title }}</h2>
-                                            <span class="product-details-ref">Reference: {{ prod.author }}</span>
+                                            <span class="product-details-ref">{% trans 'Reference' %}: {{ prod.author }}</span>
                                             <div class="price-box pt-20">
                                                 <span class="new-price new-price-2">
                                                      {% if prod.is_discount %}
                                                         <span style="color:#14EF31;" class="price">${{ prod.get_price }} - </span>
                                                         <strike style="color:red;">{{ prod.price }}</strike>
                                                     {% else %}
-                                                        <span class="price" style="color: #B714EF">No discount - ${{ prod.price }}</span>
+                                                        <span class="price" style="color: #B714EF">{% trans 'No discount' %} - ${{ prod.price }}</span>
                                                      {% endif %}
                                                 </span>
                                             </div>
@@ -340,7 +341,7 @@
                                             </div>
                                             <div class="product-variants">
                                                 <div class="produt-variants-size">
-                                                    <label>Dimension</label>
+                                                    <label>{% trans 'Dimension' %}</label>
                                                     <select class="nice-select">
                                                       {% for size in prod.sizes.all %}
                                                         <option value="1" title="S" selected="selected">{{ size.name }}</option>
@@ -351,15 +352,15 @@
                                             <div class="single-add-to-cart">
                                                 <form action="#" class="cart-quantity">
                                                     <div class="quantity">
-                                                        <label>Quantity</label>
+                                                        <label>{% trans 'Quantity' %}</label>
                                                         <div class="cart-plus-minus">
                                                             <input class="cart-plus-minus-box" value="1" type="text">
                                                         </div>
-                                                    <button class="add-to-cart" type="submit"><a href="{% url 'products:add_or_remove' pk=prod.id %}">add to cart</a></button>
+                                                    <button class="add-to-cart" type="submit"><a href="{% url 'products:add_or_remove' pk=prod.id %}">{% trans 'add to cart' %}</a></button>
                                                 </form>
                                             </div>
                                             <div class="product-additional-info pt-25">
-                                                <a class="wishlist-btn" href="{% url 'products:add_or_remov' pk=prod.id %}"><i class="fa fa-heart-o"></i>Add to wishlist</a>
+                                                <a class="wishlist-btn" href="{% url 'products:add_or_remov' pk=prod.id %}"><i class="fa fa-heart-o"></i>{% trans 'Add to wishlist' %}</a>
                                                 <div class="product-social-sharing pt-25">
                                                     <ul>
                                                          <li class="facebook"><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i>Facebook</a></li>

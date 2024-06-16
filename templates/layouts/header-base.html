@@ -1,5 +1,7 @@
 {% load static %}
 {% load my_tags %}
+{% load i18n %}
+
 <header>
                 <!-- Begin Header Top Area -->
                 <div class="header-top">
@@ -9,7 +11,7 @@
                             <div class="col-lg-3 col-md-4">
                                 <div class="header-top-left">
                                     <ul class="phone-wrap">
-                                        <li><span>Telephone Enquiry:</span><a href="#">(+998)90 331 31 71</a></li>
+                                        <li><span>{% trans 'Telephone Enquiry' %}:</span><a href="#">(+998) 90 331 31 71</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -20,30 +22,35 @@
                                     <ul class="ht-menu">
                                         <!-- Begin Setting Area -->
                                         <li>
-                                            <div class="ht-setting-trigger"><span>Setting</span></div>
+                                            <div class="ht-setting-trigger"><span>{% trans 'Settings' %}</span></div>
                                             <div class="setting ht-setting">
                                                 <ul class="ht-setting-list">
-                                                    <li><a href="{% url 'users:accounts' %}">My Account</a></li>
+                                                    <li><a href="{% url 'users:accounts' %}">{% trans 'My Accounts' %}</a></li>
                                                     {%if request.user.is_authenticated%}
-                                                        <li><a href="{% url 'users:logout'%}">Logout</a></li>
-                                                        <li><a href="{% url 'orders:checkout' %}">Checkout</a></li>
-                                                        <li><a href="{% url 'orders:history' %}">My orders</a></li>
+                                                        <li><a href="{% url 'users:logout'%}">{% trans 'Logout' %}</a></li>
+                                                        <li><a href="{% url 'orders:checkout' %}">{% trans 'Checkout' %}</a></li>
+                                                        <li><a href="{% url 'orders:history' %}">{% trans 'My order' %}</a></li>
+                                                        <li><a href="{% url 'users:faq' %}">{% trans 'Faq' %}</a></li>
                                                     {%else%}
-                                                        <li><a href="{% url 'users:login'%}">Log In</a></li>
+                                                        <li><a href="{% url 'users:login'%}">{% trans 'Log In' %}</a></li>
                                                     {%endif%}
                                                 </ul>
                                             </div>
                                         </li>
-                                        <li>
-                                            <span class="language-selector-wrapper">Language :</span>
-                                            <div class="ht-language-trigger"><span>English</span></div>
+                                            <li>
+                                            <span class="language-selector-wrapper">{% trans 'Language' %} :</span>
+                                            <div class="ht-language-trigger"><span>{% trans 'Choose'%} ?</span></div>
                                             <div class="language ht-language">
-                                                <ul class="ht-setting-list">
-                                                    <li class="active"><a href="#"><img src="{%static 'images/menu/flag-icon/1.jpg '%}" alt="">English</a></li>
-                                                    <li><a href="#"><img src="{%static 'images/menu/flag-icon/2.jpg '%}" alt="">Français</a></li>
-                                                </ul>
+                                                {% get_available_languages as all_lang %}
+                                                {% for lang_code, lang_name in all_lang %}
+                                                    {% if lang_name == 'English' or lang_name == 'Uzbek' %}
+                                                        <ul class="ht-setting-list">
+                                                            <li class="active"><a href="{% get_lang_url request lang_code %}">{{ lang_code|upper }}</a></li>
+                                                        </ul>
+                                                    {% endif %}
+                                                {% endfor %}
                                             </div>
-                                        </li>
+
                                     </ul>
                                 </div>
                             </div>
@@ -64,7 +71,7 @@
                             <div class="col-lg-9 pl-0 ml-sm-15 ml-xs-15">
                                 <!-- Begin Header Middle Searchbox Area -->
                                 <form action="#" class="hm-searchbox">
-                                    <input type="text" name="q" value="{{ request.GET.q }}" placeholder="Enter your search key ...">
+                                    <input type="text" name="q" value="{{ request.GET.q }}" placeholder="{% trans 'Enter your search key ...' %}">
                                     <button class="li-btn" type="submit"><i class="fa fa-search"></i></button>
                                 </form>
                                 <!-- Header Middle Searchbox Area End Here -->
@@ -101,7 +108,7 @@
                                                                         <span style="color:#14EF31;" class="price">${{ product.get_price }} - </span>
                                                                         <strike style="color:red;">{{ product.price }}</strike>
                                                                     {% else %}
-                                                                        <span class="price" style="color: #B714EF">No discount - ${{ product.price }}</span>
+                                                                        <span class="price" style="color: #B714EF">{% trans 'No discount' %} - ${{ product.price }}</span>
                                                                     {% endif %} x {{ product.count }}</span>
                                                         </div>
                                                         <td class="action">
@@ -110,15 +117,15 @@
                                                         </a>
                                                         </td>
                                                     </li>
-                                                    <a href="{% url 'users:cart' %}">More products ?</a>
+                                                    <a href="{% url 'users:cart' %}">{% trans 'More product' %} ?</a>
                                                 </ul>
-                                                <p class="minicart-total">TOTAL: <span>$ {{ request|get_cart_total }}</span></p>
+                                                <p class="minicart-total">{% trans 'TOTAL' %}: <span>$ {{ request|get_cart_total }}</span></p>
                                                 <div class="minicart-button">
                                                     <a href="{% url 'users:cart' %}" class="li-button li-button-fullwidth li-button-dark">
-                                                        <span>View Full Cart</span>
+                                                        <span>{% trans 'View Full Cart' %}</span>
                                                     </a>
                                                     <a href="{% url 'orders:checkout' %}" class="li-button li-button-fullwidth">
-                                                        <span>Checkout</span>
+                                                        <span>{% trans 'Checkout' %}</span>
                                                     </a>
                                                 </div>
                                             </div>
@@ -133,8 +140,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Header Middle Area End Here -->
-                <!-- Begin Header Bottom Area -->
                 <div class="header-bottom header-sticky d-none d-lg-block d-xl-block">
                     <div class="container">
                         <div class="row">
@@ -143,15 +148,15 @@
                                 <div class="hb-menu">
                                     <nav>
                                         <ul>
-                                            <li class="dropdown-holder"><a href="/">Home</a>
+                                            <li class="dropdown-holder"><a href="/">{% trans 'Home' %}</a>
                                             </li>
-                                            <li class="dropdown-holder"><a href="{% url 'blogs:list' %}">Blos</a>
+                                            <li class="dropdown-holder"><a href="{% url 'blogs:list' %}">{% trans 'Blogs' %}</a>
                                             </li>
-                                            <li class="dropdown-holder"><a href="{% url 'products:list' %}">Products</a>
+                                            <li class="dropdown-holder"><a href="{% url 'products:list' %}">{% trans 'Products' %}</a>
                                             </li>
-                                            <li class="dropdown-holder"><a href="{% url 'pages:contact' %}">Contact</a>
+                                            <li class="dropdown-holder"><a href="{% url 'pages:contact' %}">{% trans 'Contact' %}</a>
                                             </li>
-                                            <li class="dropdown-holder"><a href="{% url 'users:about'%}">About</a>
+                                            <li class="dropdown-holder"><a href="{% url 'users:about'%}">{% trans 'About' %}</a>
                                             </li>
                                         </ul>
                                     </nav>

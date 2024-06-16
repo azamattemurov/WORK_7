@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!-- login-register31:27-->
 {% include 'layouts/head.html' %}
     <body>
@@ -16,8 +17,8 @@
                 <div class="container">
                     <div class="breadcrumb-content">
                         <ul>
-                            <li><a href="{% url 'pages:home' %}">Home</a></li>
-                            <li class="active">My orders</li>
+                            <li><a href="{% url 'pages:home' %}">{% trans 'Home' %}</a></li>
+                            <li class="active">{% trans 'My orders' %}</li>
                         </ul>
                     </div>
                 </div>
@@ -30,18 +31,18 @@
                         <div id="main">
                             <div id="content" class="page-content">
                                 <div id="mywishlist">
-                                    <h1 class="title-page" style="text-align:center;">My Orders</h1>
+                                    <h1 class="title-page" style="text-align:center;">{% trans 'My Orders' %}</h1>
                                     <form method="post" class="std" id="customer-form">
                                     <div id="block-history" class="block-center">
                                         <table class="std table">
                                             <thead>
                                                 <tr>
-                                                    <th class="first_item">Name</th>
-                                                    <th class="item mywishlist_first">Qty</th>
-                                                    <th class="item mywishlist_second">Created</th>
-                                                    <th class="item mywishlist_second">Direct Link</th>
-                                                    <th class="item mywishlist_second">Status</th>
-                                                    <th class="last_item mywishlist_first">Delete</th>
+                                                    <th class="first_item">{% trans 'Name' %}</th>
+                                                    <th class="item mywishlist_first">{% trans 'Qty' %}</th>
+                                                    <th class="item mywishlist_second">{% trans 'Created' %}</th>
+                                                    <th class="item mywishlist_second">{% trans 'Direct Link' %}</th>
+                                                    <th class="item mywishlist_second">{% trans 'Status' %}</th>
+                                                    <th class="last_item mywishlist_first">{% trans 'Delete' %}</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -55,20 +56,20 @@
                                                     </td>
                                                     <td>{{ ord.created_at|date }}</td>
                                                     <td>
-                                                        <a href="javascript:;" onclick="javascript:WishlistManage('block-order-detail', '1');">View</a>
+                                                        <a href="javascript:;" onclick="javascript:WishlistManage('block-order-detail', '1');">{% trans 'View' %}</a>
                                                     </td>
                                                     <td class="wishlist_default">
                                                         <p class="is_wish_list_default">
                                                             {% if ord.status %}
-                                                        <p style="color: green">Accepted
+                                                        <p style="color: green">{% trans 'Accepted' %}
                                                             {% else %}
-                                                        <p style="color: red">Pending
+                                                        <p style="color: red">{% trans 'Pending' %}
                                                             {% endif %}
                                                         <i class="icon icon-check-square"></i>
                                                         </p>
                                                     </td>
                                                     <td class="wishlist_delete">
-                                                        <a href="javascript:;" onclick="return (WishlistDelete('wishlist_1', '1', 'Do you really want to delete this wishlist ?'));">Delete</a>
+                                                        <a href="javascript:;" onclick="return (WishlistDelete('wishlist_1', '1', 'Do you really want to delete this wishlist ?'));">{% trans 'Delete' %}</a>
                                                     </td>
                                                 </tr>
                                             {% endfor %}
@@ -79,7 +80,7 @@
                                     <div class="page-home">
                                         <a class="btn btn-default" href="{% url 'products:list' %}">
                                             <i class="fa fa-home" aria-hidden="true"></i>
-                                            <span>Homepage</span>
+                                            <span>{% trans 'Homepage' %}</span>
                                         </a>
                                     </div>
                                 </div>

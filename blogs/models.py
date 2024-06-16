@@ -5,11 +5,9 @@ from users.models import TeamModel
 from django.contrib.auth.models import User
 
 
-
-
 class BlogCategoryModel(models.Model):
     objects = None
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, verbose_name=_('name'))
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -24,7 +22,7 @@ class BlogCategoryModel(models.Model):
 
 class BlogTagModel(models.Model):
     objects = None
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, verbose_name=_('name'))
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -39,15 +37,14 @@ class BlogTagModel(models.Model):
 
 class BlogModel(models.Model):
     objects = None
-    title = models.CharField(max_length=100, db_index=True)
-    image = models.ImageField(upload_to='blog-images')
-    short_info = models.TextField(null=True)
-    content = models.TextField()
-    media_url = models.URLField(null=True, blank=True)
+    title = models.CharField(max_length=100, db_index=True, verbose_name=_('title'))
+    image = models.ImageField(upload_to='blog-images', verbose_name=_('image'))
+    short_info = models.TextField(null=True, verbose_name=_('short_info'))
+    content = models.TextField(verbose_name=_('content'))
 
-    category = models.ManyToManyField(BlogCategoryModel, related_name='blogs')
-    tags = models.ManyToManyField(BlogTagModel, related_name='tags')
-    author = models.ForeignKey(TeamModel, on_delete=models.CASCADE, related_name='blogs')
+    category = models.ManyToManyField(BlogCategoryModel, related_name='blogs',verbose_name=_('category'))
+    tags = models.ManyToManyField(BlogTagModel, related_name='tags', verbose_name=_('tags'))
+    author = models.ForeignKey(TeamModel, on_delete=models.CASCADE, related_name='blogs', verbose_name=_('author'))
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -56,15 +53,15 @@ class BlogModel(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = 'Blog'
+        verbose_name = _('Blog')
         verbose_name_plural = _('Blogs')
 
 
 class BlogCommentModel(models.Model):
     objects = None
-    blogs = models.ForeignKey(BlogModel, on_delete=models.CASCADE, related_name='comments')
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comments')
-    message = models.TextField()
+    blogs = models.ForeignKey(BlogModel, on_delete=models.CASCADE, related_name='comments', verbose_name=_('blogs'))
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comments', verbose_name=_('user'))
+    message = models.TextField(verbose_name=_('message'))
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -75,4 +72,3 @@ class BlogCommentModel(models.Model):
     class Meta:
         verbose_name = _('comment')
         verbose_name_plural = _('comments')
-

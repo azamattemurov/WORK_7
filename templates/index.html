@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -25,11 +26,11 @@
                                     <div class="single-slide align-center-left  animation-style-01 bg-1">
                                         <div class="slider-progress"></div>
                                         <div class="slider-content">
-                                            <h5>Sale Offer <span>-20% Off</span> This Week</h5>
-                                            <h2>Chamcham Galaxy S9 | S9+</h2>
-                                            <h3>Starting at <span>$1209.00</span></h3>
+                                            <h5>{% trans 'Sale Offer' %} <span>-20% </span> {% trans 'This Week' %}</h5>
+                                            <h2> Galaxy S9 | S9+</h2>
+                                            <h3>{% trans 'Starting at' %} <span>$1209.00</span></h3>
                                             <div class="default-btn slide-btn">
-                                                <a class="links" href="{% url 'products:list' %}">Shopping Now</a>
+                                                <a class="links" href="{% url 'products:list' %}">{% trans 'Shopping Now' %}</a>
                                             </div>
                                         </div>
                                     </div>
@@ -38,11 +39,11 @@
                                     <div class="single-slide align-center-left animation-style-02 bg-2">
                                         <div class="slider-progress"></div>
                                         <div class="slider-content">
-                                            <h5>Sale Offer <span>Black Friday</span> This Week</h5>
-                                            <h2>Work Desk Surface Studio 2018</h2>
-                                            <h3>Starting at <span>$824.00</span></h3>
+                                            <h5>{% trans 'Sale Offer'%} <span>{% trans 'Black Friday' %}</span> {% trans 'This Week' %}</h5>
+                                            <h2>{% trans 'Work Desk Surface Studio' %} 2018</h2>
+                                            <h3>{% trans 'Starting at'%} <span>$824.00</span></h3>
                                             <div class="default-btn slide-btn">
-                                                <a class="links" href="{% url 'products:list' %}">Shopping Now</a>
+                                                <a class="links" href="{% url 'products:list' %}">{% trans 'Shopping Now' %}</a>
                                             </div>
                                         </div>
                                     </div>
@@ -51,11 +52,11 @@
                                     <div class="single-slide align-center-left animation-style-01 bg-3">
                                         <div class="slider-progress"></div>
                                         <div class="slider-content">
-                                            <h5>Sale Offer <span>-10% Off</span> This Week</h5>
-                                            <h2>Phantom 4 Pro+ Obsidian</h2>
-                                            <h3>Starting at <span>$1849.00</span></h3>
+                                            <h5>{% trans 'Sale Offer' %} <span>-10% Off</span> {%trans 'This Week'%}</h5>
+                                            <h2>{% trans 'Phantom 4 Pro+ Obsidian' %}</h2>
+                                            <h3>{%trans 'Starting at'%} <span>$1849.00</span></h3>
                                             <div class="default-btn slide-btn">
-                                                <a class="links" href="{% url 'products:list' %}">Shopping Now</a>
+                                                <a class="links" href="{% url 'products:list' %}">{% trans 'Shopping Now' %}</a>
                                             </div>
                                         </div>
                                     </div>
@@ -90,7 +91,7 @@
                         <div class="col-lg-12">
                             <div class="li-section-title">
                                 <h2>
-                                    <span>Bestsellers</span>
+                                    <span>{% trans 'Best sellers' %}</span>
                                 </h2>
                             </div>
                             <div class="row">
@@ -103,7 +104,7 @@
                                                 <a href="{% url 'products:list' %}">
                                                     <img src="{{best.image.url}}" alt="Li's Product Image">
                                                 </a>
-                                                <span class="sticker">New</span>
+                                                <span class="sticker">{% trans 'New' %}</span>
                                             </div>
                                             <div class="product_desc">
                                                 <div class="product_desc_info">
@@ -118,13 +119,13 @@
                                                                         <span style="color:#14EF31;" class="price">${{ best.get_price }} - </span>
                                                                         <strike style="color:red;">{{ best.price }}</strike>
                                                                     {% else %}
-                                                                        <span class="price" style="color: #B714EF">No discount - ${{ best.price }}</span>
+                                                                        <span class="price" style="color: #B714EF">{% trans 'No discount '%}- ${{ best.price }}</span>
                                                                     {% endif %}</span>
                                                     </div>
                                                 </div>
                                                 <div class="add-actions">
                                                     <ul class="add-actions-link">
-                                                        <li class="add-cart active"><a href="{% url 'products:add_or_remove' pk=best.id %}?next={{request.get_full_path|urlencode}}">Add to cart</a></li>
+                                                        <li class="add-cart active"><a href="{% url 'products:add_or_remove' pk=best.id %}?next={{request.get_full_path|urlencode}}">{% trans 'Add to cart' %}</a></li>
                                                         <li><a class="links-details" href="{% url 'products:add_or_remov' pk=best.id %}?next={{request.get_full_path|urlencode}}"><i class="fa fa-heart-o"></i></a></li>
                                                         <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
                                                     </ul>
@@ -186,7 +187,7 @@
                         <div class="col-lg-12">
                             <div class="li-section-title">
                                 <h2>
-                                    <span>TOP Products</span>
+                                    <span>{% trans 'TOP Products' %}</span>
                                 </h2>
                             </div>
                             <div class="row">
@@ -199,7 +200,7 @@
                                                 <a href="{% url 'products:list' %}">
                                                     <img src="{{ t.image.url }}" alt="Li's Product Image">
                                                 </a>
-                                                <span class="sticker">New</span>
+                                                <span class="sticker">{%trans 'New' %}</span>
                                             </div>
                                             <div class="product_desc">
                                                 <div class="product_desc_info">
@@ -214,13 +215,13 @@
                                                                         <span style="color:#14EF31;" class="price">${{ t.get_price }} - </span>
                                                                         <strike style="color:red;">{{ t.price }}</strike>
                                                                     {% else %}
-                                                                        <span class="price" style="color: #B714EF">No discount - ${{ t.price }}</span>
+                                                                        <span class="price" style="color: #B714EF">{% trans 'No discount'%} - ${{ t.price }}</span>
                                                                     {% endif %}</span>
                                                     </div>
                                                 </div>
                                                 <div class="add-actions">
                                                     <ul class="add-actions-link">
-                                                        <li class="add-cart active"><a href="{% url 'products:add_or_remove' pk=t.id %}?next={{request.get_full_path|urlencode}}">Add to cart</a></li>
+                                                        <li class="add-cart active"><a href="{% url 'products:add_or_remove' pk=t.id %}?next={{request.get_full_path|urlencode}}">{% trans 'Add to cart' %}</a></li>
                                                         <li><a class="links-details" href="{% url 'products:add_or_remov' pk=t.id %}?next={{request.get_full_path|urlencode}}"><i class="fa fa-heart-o"></i></a></li>
                                                         <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
                                                     </ul>
@@ -248,15 +249,15 @@
                             <!-- Li's Static Home Image Area End Here -->
                             <!-- Begin Li's Static Home Content Area -->
                             <div class="li-static-home-content">
-                                <p>Sale Offer<span>-20% Off</span>This Week</p>
-                                <h2>Featured Product</h2>
-                                <h2>Meito Accessories 2018</h2>
+                                <p>{% trans 'Sale Offer' %}<span>-20% </span>{% trans 'This Week' %}</p>
+                                <h2>{% trans 'Featured Product' %}</h2>
+                                <h2>{% trans 'Meito Accessories' %} 2018</h2>
                                 <p class="schedule">
-                                    Starting at
+                                    {% trans 'Starting at' %}
                                     <span> $1209.00</span>
                                 </p>
                                 <div class="default-btn">
-                                    <a href="{% url 'products:list' %}" class="links">Shopping Now</a>
+                                    <a href="{% url 'products:list' %}" class="links">{% trans 'Shopping Now' %}</a>
                                 </div>
                             </div>
                             <!-- Li's Static Home Content Area End Here -->

@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!doctype html>
 <html class="no-js" lang="zxx">
 <head>
@@ -15,7 +16,7 @@
                     font-family: 'Open Sans', Helvetica, Arial, sans-serif;
                      background:url('https://wallbox.ru/resize/2560x1600/wallpapers/main2/201732/1502561450598f44aaccc176.46698383.jpg');
                      height: 100px;
-                     padding: 100px;
+
                      background-size: cover;
 
                     }
@@ -51,8 +52,8 @@
                 <div class="container">
                     <div class="breadcrumb-content">
                         <ul>
-                            <li><a href="{% url 'pages:home' %}">Home</a></li>
-                            <li class="active">Account </li>
+                            <li><a href="{% url 'pages:home' %}">{% trans 'Home' %}</a></li>
+                            <li class="active">{% trans 'Account' %} </li>
                         </ul>
                     </div>
                 </div>
@@ -65,7 +66,7 @@
                         <div id="main">
                             <div id="content" class="page-content">
                                 <div class="register-form text-center">
-                                    <h3 class="text-center title-page">Update Account</h3>
+                                    <h3 class="text-center title-page">{% trans 'Updated Account' %}</h3>
                                     {% if messages %}
                                         {% for error in messages %}
                                             <h6 style="color: red">{{ error }}</h6>
@@ -76,34 +77,34 @@
                                         <div>
                                             <div class="form-group">
                                                 <div>
-                                                    <input style="text-align: center" value="{{ account.full_name }}" class="form-control" name="full_name" type="text" placeholder="Full name">
+                                                    <input style="text-align: center" value="{{ account.full_name }}" class="form-control" name="full_name" type="text" placeholder="{% trans 'Full name' %}">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div>
-                                                    <input style="text-align: center" value="{{ account.city }}" class="form-control" name="city" type="text" placeholder="City">
+                                                    <input style="text-align: center" value="{{ account.city }}" class="form-control" name="city" type="text" placeholder="{% trans ' City' %}">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div>
-                                                    <input style="text-align: center" value="{{ account.phone }}" class="form-control" name="phone" type="text" placeholder="Phone">
+                                                    <input style="text-align: center" value="{{ account.phone }}" class="form-control" name="phone" type="text" placeholder="{% trans 'Phone' %}">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div>
-                                                    <input style="text-align: center" value="{{ account.address }}" class="form-control" name="address" type="text" placeholder="Address">
+                                                    <input style="text-align: center" value="{{ account.address }}" class="form-control" name="address" type="text" placeholder="{% trans 'Address' %}">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div>
-                                                    <input style="text-align: center" value="{{ account.company }}" class="form-control" name="company" type="text" placeholder="Company">
+                                                    <input style="text-align: center" value="{{ account.company }}" class="form-control" name="company" type="text" placeholder="{% trans 'Company' %}">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="clearfix">
                                             <div>
                                                 <button class="btn btn-primary" data-link-action="sign-in" type="submit">
-                                                    Update Account
+                                                   {% trans 'Updated Account' %}
                                                 </button>
                                             </div>
                                         </div>

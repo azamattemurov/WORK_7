@@ -1,5 +1,6 @@
 {% load static %}
 {% load my_tags %}
+{% load i18n %}
 <!doctype html>
 <html class="no-js" lang="zxx">
     
@@ -19,8 +20,8 @@
                 <div class="container">
                     <div class="breadcrumb-content">
                         <ul>
-                            <li><a href="{% url 'pages:home' %}">Home</a></li>
-                            <li class="active">Shopping Cart</li>
+                            <li><a href="{% url 'pages:home' %}">{% trans 'Home' %}</a></li>
+                            <li class="active">{% trans 'Shopping Cart' %}</li>
                         </ul>
                     </div>
                 </div>
@@ -36,11 +37,11 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th class="li-product-remove">remove</th>
-                                                <th class="li-product-thumbnail">images</th>
-                                                <th class="cart-product-name">Product</th>
-                                                <th class="li-product-quantity">Quantity</th>
-                                                <th class="li-product-subtotal">Total</th>
+                                                <th class="li-product-remove">{% trans 'Remove' %}</th>
+                                                <th class="li-product-thumbnail">{% trans 'Images' %}</th>
+                                                <th class="cart-product-name">{% trans 'Product'%}</th>
+                                                <th class="li-product-quantity">{% trans 'Quantity' %}</th>
+                                                <th class="li-product-subtotal">{% trans 'Price' %}</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -50,7 +51,7 @@
                                                 <td class="li-product-thumbnail"><a href="#"><img src="{{ prod.image.url }}" alt="Li's Product Image"></a></td>
                                                 <td class="li-product-name"><a href="#">{{ prod.title }}</a></td>
                                                 <td class="quantity">
-                                                    <label>Quantity</label>
+                                                    <label>{% trans 'Quantity' %}</label>
                                                     <div class="cart-plus-minus">
                                                         <input class="cart-plus-minus-box" value="1" type="text">
                                                     </div>
@@ -59,7 +60,7 @@
                                                                         <span style="color:#14EF31;" class="price">${{ prod.get_price }} - </span>
                                                                         <strike style="color:red;">{{ prod.price }}</strike>
                                                                     {% else %}
-                                                                        <span class="price" style="color: #B714EF">No discount - ${{ prod.price }}</span>
+                                                                        <span class="price" style="color: #B714EF">{% trans 'No discount' %} - ${{ prod.price }}</span>
                                                                     {% endif %} x {{ prod.count }}</span></td>
                                             </tr>
                                         {% endfor %}
@@ -69,7 +70,7 @@
                                  <div class="row">
                                     <div class="col-md-5 ml-auto">
                                         <div class="cart-page-total">
-                                            <h2>Cart totals</h2>
+                                            <h2>{% trans 'Cart totals' %}</h2>
                                             <ul>
                                                 <li>Total <span>${{ request|get_cart_total }}</span></li>
                                             </ul>
@@ -78,7 +79,7 @@
                                                     <div class="coupon-all">
                                                         <div class="minicart-button">
                                                             <a href="{% url 'orders:checkout' %}" class="li-button li-button-fullwidth li-button-dark">
-                                                                <span>Checkout</span>
+                                                                <span>{% trans 'Checkout' %}</span>
                                                             </a>
                                                             <br>
                                                     </div>

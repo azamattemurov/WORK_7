@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -18,8 +19,8 @@
                 <div class="container">
                     <div class="breadcrumb-content">
                         <ul>
-                            <li><a href="{% url 'pages:home' %}">Home</a></li>
-                            <li class="active">Blog list</li>
+                            <li><a href="{% url 'pages:home' %}">{% trans 'Home' %}</a></li>
+                            <li class="active">{% trans 'Blog list' %}</li>
                         </ul>
                     </div>
                 </div>
@@ -33,15 +34,9 @@
                         <div class="col-lg-3 order-lg-1 order-2">
                             <div class="li-blog-sidebar-wrapper">
                                 <div class="li-blog-sidebar">
-                                    <div class="li-sidebar-search-form pt-xs-30 pt-sm-30">
-                                        <form action="#">
-                                            <input type="text" class="li-search-field" placeholder="search here">
-                                            <button type="submit" class="li-search-btn"><i class="fa fa-search"></i></button>
-                                        </form>
-                                    </div>
                                 </div>
                                 <div class="li-blog-sidebar pt-25">
-                                    <h4 class="li-blog-sidebar-title">Categories</h4>
+                                    <h4 class="li-blog-sidebar-title">{% trans 'Categories' %}</h4>
                                     {% for cat in categories %}
                                     <ul class="li-blog-archive">
                                         <li><a style="cursor: pointer" onclick="addUrlParameter('cat','{{ cat.pk }}')"
@@ -50,7 +45,7 @@
                                     {% endfor %}
                                 </div>
                                 <div class="li-blog-sidebar">
-                                    <h4 class="li-blog-sidebar-title">Recent Post</h4>
+                                    <h4 class="li-blog-sidebar-title">{% trans 'Recent Post' %}</h4>
                                     {% for blogs in famous_blogs %}
                                     <div class="li-recent-post pb-30">
                                         <div class="li-recent-post-thumb">
@@ -66,7 +61,7 @@
                                     {% endfor %}
                                 </div>
                                 <div class="li-blog-sidebar">
-                                    <h4 class="li-blog-sidebar-title">Tags</h4>
+                                    <h4 class="li-blog-sidebar-title">{% trans 'Tags' %}</h4>
                                     {% for tag in tags %}
                                     <ul class="li-blog-tags">
                                         <li><a style="cursor: pointer" onclick="addUrlParameter('tag','{{ tag.pk }}')"
@@ -98,7 +93,7 @@
                                                             <a class="post-time" href="{% url 'blogs:detail' pk=blog.id%}"><i class="fa fa-calendar"></i>{{ blog.created_at|date}}</a>
                                                         </div>
                                                         <p>{{ blog.content }}</p>
-                                                        <a class="read-more" href="{% url 'blogs:detail' pk=blog.id%}">Read More...</a>
+                                                        <a class="read-more" href="{% url 'blogs:detail' pk=blog.id%}">{% trans 'Read More...' %}</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -114,7 +109,7 @@
                                             <div class="col-lg-12">
                                                 <ul class="li-pagination-box">
                                                     {% if page_obj.has_previous %}
-                                                    <li><a class="Previous" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+                                                    <li><a class="Previous" href="?page={{ page_obj.previous_page_number }}">{% trans 'Previous' %}</a></li>
                                                      {% endif %}
                                                     {% for page in page_obj.paginator.page_range %}
                                                     <li {% if page == page_obj.number %} class="active">{% endif %}
@@ -123,7 +118,7 @@
                                                     </li>
                                                     {% endfor %}
                                                     {% if page_obj.has_next %}
-                                                    <li><a class="Next" href="?page={{ page_obj.next_page_number }}">Next</a></li>
+                                                    <li><a class="Next" href="?page={{ page_obj.next_page_number }}">{% trans 'Next' %}</a></li>
                                                     {% endif %}
                                                 </ul>
                                             </div>
