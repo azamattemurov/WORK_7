@@ -123,7 +123,7 @@ body {
                             <form action="{% url 'users:login' %}" method="post">
                                 {% csrf_token %}
                                 <div class="login-form">
-                                    <h4 class="login-title">Login</h4>
+                                    <h4 class="login-title">Log in</h4>
                                     <div class="row">
                                         <div class="col-md-12 mb-20">
                                             <label>Username*</label>
@@ -131,14 +131,18 @@ body {
                                         </div>
                                         <div class="col-md-6 mb-20">
                                             <label>Password</label>
-                                            <input name="password1" class="mb-0" type="password" placeholder="Password">
+                                            <input name="password" class="mb-0" type="password" placeholder="Password">
                                         </div>
-
+                                        <br>
                                         <div class="col-12">
-                                            <button class="register-button mt-0" type="submit">Log In</button>
+                                            <a href="{% url 'users:register' %}">Ro'yihatdan o'tmaganmisiz ?</a>
+                                        </div>
+                                        <br>
+                                        <br>
+                                        <div class="col-12">
+                                            <button class="register-button mt-0" type="submit">Log in</button>
                                         </div>
                                     </div>
-                                    <a href="{% url 'users:register' %}">Forgot password ?</a>
                                 </div>
                             </form>
                             <br>

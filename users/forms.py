@@ -18,8 +18,8 @@ class RegisterForm(UserCreationForm):
         return email
 
 class LoginForm(AuthenticationForm):
-    username = forms.CharField(max_length=255)
-    password = forms.CharField(max_length=255)
+    username = forms.CharField(max_length=254, required=True)
+    password = forms.CharField(widget=forms.PasswordInput, required=True)
 
 class EmailVerificationForm(forms.Form):
     code = forms.CharField(max_length=6)

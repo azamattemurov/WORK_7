@@ -7,7 +7,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.core.mail import send_mail
 from django.db.models import Sum
 from django.shortcuts import render, redirect
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.views.generic import TemplateView, CreateView, FormView, UpdateView, ListView
 import random
 from conf import settings
@@ -97,17 +97,19 @@ class LoginView(FormView):
         user = authenticate(username=username, password=password)
         if user is not None:
             login(self.request, user)
+            messages.success(self.request, 'Successfully logged in')
+            print(f'Authenticated user: {user}')
+            print(f'Success URL: {self.success_url}')
             return redirect(self.success_url)
         else:
-            messages.error(self.request, 'Invalid password or username')
+            messages.error(self.request, 'Invalid username or password')
+            return self.render_to_response(self.get_context_data(form=form))
 
     def form_invalid(self, form):
-        storage = messages.get_messages(self.request)
-        storage.used = True
-        messages.error(self.request, 'Form is invalid')
-
+        for field, errors in form.errors.items():
+            for error in errors:
+                messages.error(self.request, f"Error in {field}: {error}")
         return self.render_to_response(self.get_context_data(form=form))
-
 
 def logout_view(request):
     if request.method == 'GET':
