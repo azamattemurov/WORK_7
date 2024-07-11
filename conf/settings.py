@@ -81,8 +81,12 @@ WSGI_APPLICATION = 'conf.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'n41',        # Ma'lumotlar bazasi nomi
+        'USER': 'postgres',            # Ma'lumotlar bazasi foydalanuvchisi nomi
+        'PASSWORD': 123,    # Ma'lumotlar bazasi foydalanuvchisi paroli
+        'HOST': 'localhost',         # Ma'lumotlar bazasi serveri manzili
+        'PORT': '5432',              # Ma'lumotlar bazasi porti
     }
 }
 
